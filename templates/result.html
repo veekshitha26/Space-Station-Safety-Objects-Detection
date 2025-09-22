@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="{{ url_for('static', filename='135988-764371107_small.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="navbar">
+    <div class="logo">Space Station Safety Objects Detection</div>
+    <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('history') }}">History</a></li>
+    </ul>
+    </div>
+<div class="container">
+    <h1>Detection Results</h1>
+    <img class="detected-img" src="{{ url_for('static', filename='uploads/' + results.filename) }}" alt="Result Image" style="max-width: 600px; display: block; margin: auto;">
+    <h2>Detected Objects:</h2>
+    <ul>
+    {% for obj, conf in zip(results.detected_objects, results.confidences) %}
+        <li>{{ obj }} — Confidence: {{ '%.2f'|format(conf) }}</li>
+    {% endfor %}
+</ul>
+    <a class="btn" href="{{ url_for('home') }}">Back to Home</a>
+    <a class="btn" href="{{ url_for('history') }}">View History</a>
+</div>
+
+</body>
+</html>

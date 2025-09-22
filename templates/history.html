@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="{{ url_for('static', filename='135988-764371107_small.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="navbar">
+    <div class="logo">Space Station Safety Objects Detection</div>
+    <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('history') }}">History</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+    </ul>
+    </div>
+
+    <div class="page-history">
+        <h1>Detection History</h1>
+
+        {% if history %}
+        <div class="history-cards">
+            {% for item in history %}
+                <div class="result-card">
+                    <img class="detected-img" src="{{ url_for('static', filename='uploads/' + item.filename) }}">
+                    <p>Objects: {{ item.detected_objects|join(', ') }}</p>
+                    <p>Confidence: 
+                        {% for conf in item.confidences %}
+                            {{ '%.2f'|format(conf) }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                    <form method="POST" action="{{ url_for('delete_history', index=loop.index0) }}">
+                        <input type="submit" value="Delete" class="delete-btn">
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <p>No history yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

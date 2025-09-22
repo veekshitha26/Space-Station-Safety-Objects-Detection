@@ -1,0 +1,60 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>About</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <video autoplay muted loop id="bg-video">
+            <source src="{{ url_for('static', filename='135988-764371107_small.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="navbar">
+        <div class="logo">Space Station Safety Objects Detection</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('history') }}">History</a></li>
+        </ul>
+        </div>
+
+    <div class="container2">
+            <h1>About the Project</h1>
+            <p>
+                Space Station Safety Objects Detection is a cutting-edge project aimed at enhancing safety in Space Station
+                by automatically detecting the necessary protective equipment such as OxygenTank ,NitrogenTank ,FirstAidBox,FireAlarm,SafetySwitchPanel,EmergencyPhone,FireExtinguisher.
+                Our system uses advanced computer
+            vision and deep learning techniques to identify objects in real-time images,
+            and maintain compliance with safety protocols.
+            </p>
+
+            <h2>Features</h2>
+            <ul>
+                <li>Automatic detection of safety equipment in images.</li>
+                <li>Confidence score for each detected item.</li>
+                <li>Detection history with visual results.</li>
+                <li>Interactive and easy-to-use web interface.</li>
+            </ul>
+
+            <h2>Technology Used</h2>
+            <ul>
+                <li>Python & Flask for web application.</li>
+                <li> Synthetic dataset from Falcon. </li>
+                <li>YOLOv8 deep learning model for object detection.</li>
+                <li>OpenCV for image processing and annotation.</li>
+                <li>HTML, CSS, and JavaScript for frontend design.</li>
+            </ul>
+            <br>
+
+    <h2>Team : Techies</h2>
+    <p>
+        Veekshitha Naragani <br>
+         Sucharitha Varikuti
+    </p>
+    </div>
+            <a class="btn" href="{{ url_for('home') }}">Back to Home</a>
+        </div>
+    </body>
+    </html>

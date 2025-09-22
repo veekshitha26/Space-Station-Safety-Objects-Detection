@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Space Station Safety Objects Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="{{ url_for('static', filename='135988-764371107_small.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="navbar">
+    <div class="logo">Space Station Safety Objects Detection</div>
+    <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('history') }}">History</a></li>
+        
+    </ul>
+</div>
+
+
+    <div class="container">
+    <h1 style="margin-bottom: 50px; text-align: center; font-size: 40px; ">
+    Space Station <br>
+    Safety Objects Detection</span>
+</h1>
+
+    <form method="POST" action="/predict" enctype="multipart/form-data">
+       
+        <label class="upload-label">
+            📁 Choose Image
+            <input type="file" name="image" id="imageInput" required>
+        </label>
+        <img id="preview" alt="Image Preview" style="display:none; max-width: 100%; height: auto; margin-top: 20px; border-radius:10px; border:2px solid #00e6e6; box-shadow:0 0 15px #00e6e6;">
+        <input type="submit" value="Upload & Detect">
+    </form>
+</div>
+
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const preview = document.getElementById('preview');
+        imageInput.addEventListener('change', function(){
+            const file = this.files[0];
+            if(file){
+                const reader = new FileReader();
+                reader.onload = function(e){
+                    preview.setAttribute('src', e.target.result);
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
