@@ -7,7 +7,7 @@ Model Performence : The model achieved a precision of 87.39% and recall of 59.31
 
 <img width="471" height="270" alt="image" src="https://github.com/user-attachments/assets/d6a82f26-e57a-4237-ad05-3a12702783b8" />
 
-# Web Interface : 
+## Web Interface : 
 To make the object detection model user-friendly and accessible, a web-based interface was developed using Flask. 
 
 Key Features:
@@ -20,7 +20,10 @@ Key Features:
 <img width="464" height="195" alt="image" src="https://github.com/user-attachments/assets/ecc72bf8-68e5-43a8-a5c5-57895885fdaf" />
 
 
+
 <img width="313" height="224" alt="image" src="https://github.com/user-attachments/assets/a27be441-5e79-4ad7-ade0-121723e4da5a" />
+
+
 
 <img width="444" height="195" alt="image" src="https://github.com/user-attachments/assets/b8863496-d761-48d4-aa47-9d38205379df" />
 
