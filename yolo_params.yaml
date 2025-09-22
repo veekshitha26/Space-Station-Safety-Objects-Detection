@@ -1,0 +1,6 @@
+train: C:\Users\Dell\Hackathon\Datasets\train1\images
+val: C:\Users\Dell\Hackathon\Datasets\val1\images
+test: C:\Users\Dell\Hackathon\Datasets\test1\images
+
+nc: 7
+names: ['OxygenTank', 'NitrogenTank', 'FirstAidBox', 'FireAlarm', 'SafetySwitchPanel', 'EmergencyPhone', 'FireExtinguisher']
